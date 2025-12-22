@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP - Advanced Precision Products | Optical Technology Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy-900: #0f172a;
+            --navy-800: #1e293b;
+            --navy-700: #334155;
+            --blue-600: #2563eb;
+            --blue-500: #3b82f6;
+            --cyan-500: #06b6d4;
+            --cyan-400: #22d3ee;
+            --orange-500: #f97316;
+            --orange-400: #fb923c;
+            --green-500: #22c55e;
+            --red-500: #ef4444;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: var(--white);
+        }
+
+        /* ========== NAVIGATION ========== */
+        .topbar {
+            background: var(--navy-900);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-link .arrow {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        .nav-item .sub {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            min-width: 280px;
+            padding: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            list-style: none;
+        }
+
+        .nav-item:hover .sub {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .sub a {
+            display: block;
+            padding: 12px 16px;
+            color: var(--gray-600);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .sub a:hover {
+            background: var(--gray-100);
+            color: var(--blue-600);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--orange-500), var(--orange-400));
+            color: var(--white) !important;
+            padding: 10px 24px !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 50%, var(--navy-700) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            color: var(--cyan-400);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--cyan-400);
+        }
+
+        .hero .lead {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.25);
+        }
+
+        .btn.secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .hero-card .kicker {
+            color: var(--blue-600);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .hero-card .check {
+            list-style: none;
+        }
+
+        .hero-card .check li {
+            padding: 10px 0;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-card .check li::before {
+            content: '✓';
+            color: var(--green-500);
+            font-weight: bold;
+            background: rgba(34, 197, 94, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* ========== SECTIONS ========== */
+        .band {
+            padding: 80px 0;
+        }
+
+        .band.alt {
+            background: var(--gray-50);
+        }
+
+        .band h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--navy-900);
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-intro p {
+            color: var(--gray-500);
+            font-size: 1.15rem;
+        }
+
+        /* ========== CARDS GRID ========== */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+            color: var(--white);
+            padding: 24px 28px;
+        }
+
+        .card-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .card-header .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .card-body {
+            padding: 28px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 16px;
+        }
+
+        .card .prose {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .card .prose p {
+            margin-bottom: 12px;
+        }
+
+        .card .prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list .icon {
+            color: var(--green-500);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Product Card with Image */
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-200);
+        }
+
+        .product-card .image-wrapper {
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-50));
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 240px;
+        }
+
+        .product-card .image-wrapper img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .product-card .content {
+            padding: 28px;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 12px;
+        }
+
+        .product-card .desc {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .spec-item {
+            background: var(--gray-50);
+            padding: 14px 16px;
+            border-radius: 10px;
+            border-left: 3px solid var(--cyan-500);
+        }
+
+        .spec-item .label {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .spec-item .value {
+            font-weight: 600;
+            color: var(--navy-900);
+        }
+
+        /* Featured Product */
+        .featured-product {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            border: 2px solid var(--cyan-500);
+            margin-bottom: 40px;
+        }
+
+        .featured-product .featured-header {
+            background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
+            color: var(--white);
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .featured-product .featured-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0;
+        }
+
+        .featured-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .featured-product .featured-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 32px;
+            padding: 32px;
+        }
+
+        .featured-product .image-container {
+            background: linear-gradient(135deg, var(--gray-100), var(--gray-50));
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .featured-product .image-container img {
+            max-width: 100%;
+            max-height: 280px;
+            object-fit: contain;
+        }
+
+        .featured-product .details h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 12px;
+        }
+
+        .featured-product .details p {
+            color: var(--gray-600);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-row .btn {
+            padding: 12px 24px;
+        }
+
+        .btn.outline {
+            background: transparent;
+            color: var(--blue-600);
+            border: 2px solid var(--blue-600);
+        }
+
+        .btn.outline:hover {
+            background: var(--blue-600);
+            color: var(--white);
+        }
+
+        /* ========== QUALITY SECTION ========== */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: relative;
+            border: 1px solid var(--gray-200);
+        }
+
+        .pillar-number {
+            position: absolute;
+            top: -16px;
+            left: 28px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .pillar-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin: 24px 0 12px;
+        }
+
+        .pillar-card p {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta-banner h3 {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-card .icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 1.5rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 8px;
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            color: var(--blue-600);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--navy-900);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 0 32px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            line-height: 1.7;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer li {
+            margin-bottom: 12px;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--cyan-400);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-product .featured-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========== UTILITIES ========== */
+        .text-center { text-align: center; }
+        .mb-0 { margin-bottom: 0; }
+        .mt-4 { margin-top: 32px; }
+        .mt-6 { margin-top: 48px; }
+
+        /* Figure styling */
+        .figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+<header class="topbar">
+    <div class="container nav-wrapper">
+        <a class="logo" href="#top">APP</a>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="#technology">Technology <span class="arrow">▼</span></a>
+                    <ul class="sub">
+                        <li><a href="#camera-modules">Camera Modules</a></li>
+                        <li><a href="#automation">Manufacturing Automation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#products">Products <span class="arrow">▼</span></a>
+                    <ul class="sub">
+                        <li><a href="#optical-products">Optical Products</a></li>
+                        <li><a href="#vibration-platform">1D Vibration Platform</a></li>
+                        <li><a href="#vibration-2d">2D Vibration Platform</a></li>
+                        <li><a href="#automation-equipment">Automation Equipment</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#quality">Quality</a>
+                </li>
+                <li class="nav-item">
+                    <a class="cta-btn" href="#contact">Request a Quote</a>
+                </li>
+            </ul>
+    </nav>
+    </div>
+</header>
+
+    <!-- Hero Section -->
+<section class="hero" id="top">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <div class="hero-badge">★ Industry-Leading Optical Solutions</div>
+            <h1>Advanced Precision Products<br><span>Optical Technology</span></h1>
+            <p class="lead">Professional camera modules, precision manufacturing automation, and OIS testing solutions for smartphones, automobiles, drones, and industrial applications.</p>
+            <div class="actions">
+                <a class="btn primary" href="#products">Explore Products →</a>
+                <a class="btn secondary" href="#contact">Request Demo</a>
+            </div>
+                </div>
+        <div class="hero-media">
+            <div class="hero-card">
+                <div class="kicker">Core Capabilities</div>
+                <ul class="check">
+                    <li>Camera Modules (FF, AF, OIS, Liquid Lens)</li>
+                    <li>High Precision Manufacturing Automation</li>
+                    <li>OIS Evaluation Systems</li>
+                    <li>Zero Defect Quality Standards</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+<section class="band" id="technology">
+        <div class="container">
+        <h2>Technology</h2>
+        <div class="cards">
+            <div class="card" id="camera-modules">
+                <div class="card-header">
+                    <h3>Camera Modules</h3>
+                    <div class="subtitle">Optical Technology Solutions</div>
+            </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li><span class="icon">✓</span> <strong>Fixed-Focus:</strong> Razor-sharp images with stable optical characteristics</li>
+                        <li><span class="icon">✓</span> <strong>Auto-Focus:</strong> Advanced mechanisms for fast-moving scene capture</li>
+                        <li><span class="icon">✓</span> <strong>OIS:</strong> Compensates for camera movement, blur-free images</li>
+                        <li><span class="icon">✓</span> <strong>Liquid Lenses:</strong> Rapid adjustments, compact & durable designs</li>
+                        </ul>
+                    <div class="specs-grid mt-4">
+                        <div class="spec-item">
+                            <div class="label">Applications</div>
+                            <div class="value">Smartphones</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Applications</div>
+                            <div class="value">Automobiles</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Applications</div>
+                            <div class="value">Drones</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Applications</div>
+                            <div class="value">Industrial</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="automation">
+                <div class="card-header">
+                    <h3>Manufacturing Automation</h3>
+                    <div class="subtitle">High Precision Solutions</div>
+                </div>
+                <div class="card-body">
+                    <ul class="feature-list">
+                        <li><span class="icon">✓</span> <strong>Turnkey Solutions:</strong> High integration & throughput</li>
+                        <li><span class="icon">✓</span> <strong>Predictive Analytics:</strong> ML-powered maintenance</li>
+                        <li><span class="icon">✓</span> <strong>IIoT Sensors:</strong> Real-time data collection</li>
+                        <li><span class="icon">✓</span> <strong>Laser Soldering:</strong> Exceptional precision bonds</li>
+                        <li><span class="icon">✓</span> <strong>Automated Dispensing:</strong> CNC-guided accuracy</li>
+                        <li><span class="icon">✓</span> <strong>Camera Vision AOI:</strong> Advanced inspection</li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section class="band alt" id="products">
+    <div class="container">
+        <h2>Products</h2>
+
+        <!-- Featured: Vibration Platform -->
+        <div class="featured-product" id="vibration-platform">
+            <div class="featured-header">
+                <h3>📦 Featured: OIS Testing Equipment</h3>
+                <span class="featured-badge">Ultra-Portable</span>
+                    </div>
+            <div class="featured-content">
+                <div class="image-container">
+                    <img src="images/image1.jpeg" alt="1D Vibration Platform" onerror="this.style.display='none'">
+                    </div>
+                <div class="details">
+                    <h4>1D Vibration Platform</h4>
+                    <p>This ultra-portable bench-top vibration platform is ideal for demo purposes and designed to test and evaluate optical image stabilization (OIS) performance. Perfect for R&D labs, quality assurance, and on-site demonstrations.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Dimensions (W×L×H)</div>
+                            <div class="value">200 × 130 × 175 mm</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Amplitude</div>
+                            <div class="value">±0.1 to ±0.5 mm</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Frequency</div>
+                            <div class="value">1 – 11 Hz</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="label">Input Voltage</div>
+                            <div class="value">±15 VDC</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="label">Max Current</div>
+                            <div class="value">2 A</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="label">Weight</div>
+                            <div class="value">2.2 Kg</div>
+                        </div>
+                    </div>
+                    <div class="btn-row">
+                        <a href="#contact" class="btn primary">Request Quote →</a>
+                        <a href="#contact" class="btn outline">Schedule Demo</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        <!-- 2D Vibration Platform -->
+        <div class="featured-product" id="vibration-2d" style="border-color: var(--blue-500);">
+            <div class="featured-header" style="background: linear-gradient(135deg, var(--blue-600), var(--blue-500));">
+                <h3>📦 2D Vibration Platform</h3>
+                <span class="featured-badge">Production Ready</span>
+                    </div>
+            <div class="featured-content">
+                <div class="image-container">
+                    <img src="images/image2.png" alt="2D Vibration Platform" onerror="this.style.display='none'">
+                    </div>
+                <div class="details">
+                    <h4>2D Vibration Platform</h4>
+                    <p>This portable 2-D vibration platform is designed for testing and comparing camera picture results with and without image stabilizers in operation. It offers adjustable vibration in two dimensions and is suitable for demo use or production environments.</p>
+                    <ul class="feature-list" style="margin-bottom: 20px;">
+                        <li><span class="icon">✓</span> Adjustable vibration in two dimensions (manual or USB control)</li>
+                        <li><span class="icon">✓</span> Frequency and waveform adjustments</li>
+                        <li><span class="icon">✓</span> Suitable for demo and production environments</li>
+                        </ul>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Dimensions (W×L×H)</div>
+                            <div class="value">410 × 172 × 170 mm</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Amplitude (D×L)</div>
+                            <div class="value">±0.1 to ±1.5 mm</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Frequency</div>
+                            <div class="value">1 – 12 Hz</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Input Voltage</div>
+                            <div class="value">24 VDC</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Max Current</div>
+                            <div class="value">2 A</div>
+                </div>
+                        <div class="spec-item">
+                            <div class="label">Weight</div>
+                            <div class="value">6 Kg</div>
+            </div>
+                        <div class="spec-item">
+                            <div class="label">Interface</div>
+                            <div class="value">USB 2.0</div>
+        </div>
+                        <div class="spec-item">
+                            <div class="label">Control</div>
+                            <div class="value">Manual / USB</div>
+                        </div>
+                    </div>
+                    <div class="btn-row">
+                        <a href="#contact" class="btn primary">Request Quote →</a>
+                        <a href="#contact" class="btn outline">Schedule Demo</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <!-- Product Cards Grid -->
+        <div class="cards" id="optical-products">
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="images/image3.jpg" alt="OIS VCM Assembly Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>⚙️</div>'">
+                </div>
+                <div class="content">
+                    <h3>OIS VCM Assembly Machine</h3>
+                    <p class="desc">Fully automated production machine for assembling OIS/AF voice coil motors. Replaces labor-intensive lines with high-volume capability.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Cycle Time</div>
+                            <div class="value">&lt; 4 seconds</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="label">Sorting</div>
+                            <div class="value">4 Types (A,B,C,D)</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="images/image4.jpeg" alt="Lens Assembly Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>🔧</div>'">
+                    </div>
+                <div class="content">
+                    <h3>Lens Assembly Machine</h3>
+                    <p class="desc">High precision assembly of camera lens elements into lens barrels using computer vision. Handles up to 12 lens elements.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Cycle Time</div>
+                            <div class="value">&lt; 8 seconds</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="label">Repeatability</div>
+                            <div class="value">±0.010mm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="images/image5.png" alt="Lens Insertion Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>🎯</div>'">
+                </div>
+                <div class="content">
+                        <h3>Lens Insertion Machine</h3>
+                    <p class="desc">Automates lens element insertion with precision probe control and torque management for threaded lenses.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Cycle Time</div>
+                            <div class="value">&lt; 5 seconds</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Accuracy</div>
+                            <div class="value">±0.025mm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" id="automation-equipment">
+                <div class="image-wrapper">
+                    <img src="images/image6.jpeg" alt="Lens MTF Sorting Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>📊</div>'">
+                </div>
+                <div class="content">
+                        <h3>Lens MTF Sorting Machine</h3>
+                    <p class="desc">Automated sorting based on MTF measurement results. Compatible with Trioptics, UMA, IMT2.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Cycle Time</div>
+                            <div class="value">&lt; 2 seconds</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">Grades</div>
+                            <div class="value">4 Quality Types</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="images/image7.jpg" alt="Lens ID Sorting Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>🔍</div>'">
+                </div>
+                <div class="content">
+                        <h3>Lens ID Sorting Machine</h3>
+                    <p class="desc">Visual recognition of lens IDs for automated sorting. Clean room compatible with ultra-short cycle times.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Cycle Time</div>
+                            <div class="value">&lt; 1 second</div>
+                    </div>
+                        <div class="spec-item">
+                            <div class="label">ID Classes</div>
+                            <div class="value">Up to 4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="images/image8.jpg" alt="Automated Dispensing Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>💧</div>'">
+                </div>
+                <div class="content">
+                        <h3>Automated Dispensing Machine</h3>
+                    <p class="desc">Precision adhesive dispensing for optical and electronic components. Flexible and modular designs.</p>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="label">Process</div>
+                            <div class="value">CNC-Guided</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="label">Design</div>
+                            <div class="value">Modular</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+<section class="band" id="quality">
+        <div class="container">
+        <h2>Quality Assurance</h2>
+        <div class="section-intro">
+            <p>At APP, we stand at the forefront of opto-mechanical product manufacturing, driven by our unwavering commitment to quality and continuous improvement.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-number">1</div>
+                    <h3>Precision Engineering Fusion</h3>
+                <p>Opto-mechanical engineering represents the fusion of optical and mechanical principles. Our systems are meticulously designed to manipulate light with unparalleled control, adhering to the industry's tightest tolerances.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-number">2</div>
+                    <h3>Zero Defect Philosophy</h3>
+                <p>Our internal system leaves no room for compromise. We strive for "Zero Defect" precision in every component through rigorous inspections, advanced metrology, and statistical analysis.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-number">3</div>
+                <h3>Statistical Quality Control</h3>
+                <p>Transparency is our hallmark. We maintain a robust SQC database, tracking quality metrics across production batches. This data-driven approach empowers our workforce to recognize quality's inseparable role.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-number">4</div>
+                <h3>Expert Inspection Team</h3>
+                <p>Our specialized quality department, led by seasoned inspectors and technicians, ensures meticulous scrutiny from incoming raw materials to final assembly.</p>
+                </div>
+            </div>
+
+        <div class="cta-banner">
+            <h3>At APP, we don't just manufacture — we engineer excellence</h3>
+            <p>Our guiding principles remain steadfast: customer satisfaction, precision, and reliability.</p>
+            <a href="#contact" class="btn primary">Get Started Today →</a>
+            </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="band alt" id="contact">
+    <div class="container">
+        <h2 class="text-center">Get in Touch</h2>
+        <div class="section-intro">
+            <p>Ready to elevate your optical technology? Contact our team for a personalized consultation.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="icon">📧</div>
+                <h4>Email Us</h4>
+                <a href="mailto:sales@app-precision.com">sales@app-precision.com</a>
+            </div>
+            <div class="contact-card">
+                <div class="icon">📞</div>
+                <h4>Call Us</h4>
+                <a href="tel:+18005550199">+1 (800) 555-0199</a>
+            </div>
+            <div class="contact-card">
+                <div class="icon">📍</div>
+                <h4>Visit Us</h4>
+                <p>123 Innovation Drive</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a class="logo" href="#top">APP</a>
+                <p>Advanced Precision Products — Leading the future of optical technology with cutting-edge camera modules, precision manufacturing automation, and uncompromising quality standards.</p>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#camera-modules">Camera Modules</a></li>
+                    <li><a href="#vibration-platform">1D Vibration Platform</a></li>
+                    <li><a href="#vibration-2d">2D Vibration Platform</a></li>
+                    <li><a href="#automation-equipment">Automation Equipment</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#quality">Quality Assurance</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="#">Knowledge Base</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </div>
+        </div>
+            <div class="footer-bottom">
+            <p>© 2025 Advanced Precision Products. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                const offset = 80;
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
