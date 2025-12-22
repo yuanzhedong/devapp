@@ -22,6 +22,7 @@
             --gray-100: #f1f5f9;
             --gray-200: #e2e8f0;
             --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
             --gray-500: #64748b;
             --gray-600: #475569;
             --gray-900: #0f172a;
@@ -105,8 +106,13 @@
         }
 
         .nav-link .arrow {
-            font-size: 0.7rem;
+            font-size: 0.6rem;
             opacity: 0.7;
+            border: solid currentColor;
+            border-width: 0 1.5px 1.5px 0;
+            padding: 2px;
+            transform: rotate(45deg);
+            margin-top: -2px;
         }
 
         .nav-item .sub {
@@ -147,19 +153,17 @@
         }
 
         .cta-btn {
-            background: linear-gradient(135deg, var(--orange-500), var(--orange-400));
+            background: var(--blue-600);
             color: var(--white) !important;
             padding: 10px 24px !important;
-            border-radius: 50px !important;
+            border-radius: 8px !important;
             font-weight: 600 !important;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
         }
 
         .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(249, 115, 22, 0.4);
+            background: var(--blue-500);
         }
 
         /* ========== HERO ========== */
@@ -177,7 +181,7 @@
             right: 0;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
             border-radius: 50%;
         }
 
@@ -194,24 +198,24 @@
         }
 
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(6, 182, 212, 0.15);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.25);
             color: var(--cyan-400);
             padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 800;
             color: var(--white);
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 20px;
             letter-spacing: -1px;
         }
@@ -221,8 +225,8 @@
         }
 
         .hero .lead {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.8);
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.75);
             margin-bottom: 32px;
             line-height: 1.7;
         }
@@ -234,32 +238,28 @@
         }
 
         .btn {
-            padding: 14px 32px;
-            border-radius: 10px;
+            padding: 14px 28px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            transition: all 0.2s;
+            display: inline-block;
         }
 
         .btn.primary {
-            background: linear-gradient(135deg, var(--blue-600), var(--blue-500));
+            background: var(--blue-600);
             color: var(--white);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
         }
 
         .btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.45);
+            background: var(--blue-500);
         }
 
         .btn.secondary {
             background: transparent;
             color: var(--white);
-            border: 2px solid rgba(255,255,255,0.25);
+            border: 1.5px solid rgba(255,255,255,0.25);
         }
 
         .btn.secondary:hover {
@@ -269,18 +269,20 @@
 
         .hero-card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 32px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .hero-card .kicker {
-            color: var(--blue-600);
+            color: var(--navy-900);
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--gray-200);
         }
 
         .hero-card .check {
@@ -289,24 +291,22 @@
 
         .hero-card .check li {
             padding: 10px 0;
-            color: var(--gray-600);
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            color: var(--gray-700);
+            font-size: 0.95rem;
+            padding-left: 20px;
+            position: relative;
         }
 
         .hero-card .check li::before {
-            content: '✓';
-            color: var(--green-500);
-            font-weight: bold;
-            background: rgba(34, 197, 94, 0.1);
-            width: 24px;
-            height: 24px;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--cyan-500);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
         }
 
         /* ========== SECTIONS ========== */
@@ -319,8 +319,8 @@
         }
 
         .band h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2.25rem;
+            font-weight: 700;
             color: var(--navy-900);
             margin-bottom: 48px;
             letter-spacing: -0.5px;
@@ -334,7 +334,7 @@
 
         .section-intro p {
             color: var(--gray-500);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
         }
 
         /* ========== CARDS GRID ========== */
@@ -346,35 +346,34 @@
 
         .card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             border: 1px solid var(--gray-200);
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
         .card-header {
-            background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+            background: var(--navy-800);
             color: var(--white);
             padding: 24px 28px;
         }
 
         .card-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 4px;
             color: var(--white) !important;
         }
 
         .card-header .subtitle {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            opacity: 0.7;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .card-body {
@@ -383,7 +382,7 @@
 
         .card-body h3,
         .card > h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--navy-900);
             margin-bottom: 16px;
@@ -393,14 +392,6 @@
             color: var(--gray-600);
             font-size: 0.95rem;
             line-height: 1.7;
-        }
-
-        .card .prose p {
-            margin-bottom: 12px;
-        }
-
-        .card .prose p:last-child {
-            margin-bottom: 0;
         }
 
         /* Feature List */
@@ -415,100 +406,118 @@
             gap: 12px;
             border-bottom: 1px solid var(--gray-100);
             color: var(--gray-700);
+            font-size: 0.95rem;
         }
 
         .feature-list li:last-child {
             border-bottom: none;
         }
 
-        .feature-list .icon {
-            color: var(--green-500);
-            font-weight: bold;
+        .feature-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--cyan-500);
+            border-radius: 50%;
             flex-shrink: 0;
+            margin-top: 8px;
         }
 
         /* Product Card with Image */
         .product-card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             border: 1px solid var(--gray-200);
+            transition: all 0.2s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
         .product-card .image-wrapper {
-            background: linear-gradient(135deg, var(--gray-100), var(--gray-50));
+            background: var(--gray-100);
             padding: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 240px;
+            min-height: 200px;
         }
 
         .product-card .image-wrapper img {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 180px;
             object-fit: contain;
-            border-radius: 8px;
+        }
+
+        .product-card .image-placeholder {
+            width: 80px;
+            height: 80px;
+            background: var(--gray-200);
+            border-radius: 12px;
         }
 
         .product-card .content {
-            padding: 28px;
+            padding: 24px;
         }
 
         .product-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--navy-900);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .product-card .desc {
             color: var(--gray-600);
-            margin-bottom: 20px;
-            line-height: 1.7;
+            margin-bottom: 16px;
+            line-height: 1.6;
+            font-size: 0.9rem;
         }
 
         /* Specs Grid */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 16px;
         }
 
         .spec-item {
             background: var(--gray-50);
-            padding: 14px 16px;
-            border-radius: 10px;
+            padding: 12px 14px;
+            border-radius: 8px;
             border-left: 3px solid var(--cyan-500);
         }
 
         .spec-item .label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--gray-500);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .spec-item .value {
             font-weight: 600;
             color: var(--navy-900);
+            font-size: 0.9rem;
         }
 
         /* Featured Product */
         .featured-product {
             background: var(--white);
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-            border: 2px solid var(--cyan-500);
-            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-200);
+            margin-bottom: 32px;
         }
 
         .featured-product .featured-header {
-            background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
+            background: var(--navy-800);
             color: var(--white);
             padding: 16px 28px;
             display: flex;
@@ -517,30 +526,32 @@
         }
 
         .featured-product .featured-header h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--white);
             margin: 0;
         }
 
         .featured-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            background: rgba(255,255,255,0.15);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .featured-product .featured-content {
             display: grid;
-            grid-template-columns: 350px 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 32px;
             padding: 32px;
         }
 
         .featured-product .image-container {
-            background: linear-gradient(135deg, var(--gray-100), var(--gray-50));
-            border-radius: 16px;
+            background: var(--gray-100);
+            border-radius: 12px;
             padding: 24px;
             display: flex;
             align-items: center;
@@ -549,21 +560,22 @@
 
         .featured-product .image-container img {
             max-width: 100%;
-            max-height: 280px;
+            max-height: 240px;
             object-fit: contain;
         }
 
         .featured-product .details h4 {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--navy-900);
             margin-bottom: 12px;
         }
 
-        .featured-product .details p {
+        .featured-product .details > p {
             color: var(--gray-600);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .btn-row {
@@ -579,7 +591,7 @@
         .btn.outline {
             background: transparent;
             color: var(--blue-600);
-            border: 2px solid var(--blue-600);
+            border: 1.5px solid var(--blue-600);
         }
 
         .btn.outline:hover {
@@ -596,77 +608,62 @@
 
         .pillar-card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             position: relative;
             border: 1px solid var(--gray-200);
         }
 
         .pillar-number {
             position: absolute;
-            top: -16px;
+            top: -14px;
             left: 28px;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
-            border-radius: 14px;
+            width: 40px;
+            height: 40px;
+            background: var(--navy-800);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-weight: 800;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         .pillar-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--navy-900);
-            margin: 24px 0 12px;
+            margin: 20px 0 10px;
         }
 
         .pillar-card p {
             color: var(--gray-600);
             line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         /* ========== CTA BANNER ========== */
         .cta-banner {
-            background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
-            border-radius: 24px;
+            background: var(--navy-800);
+            border-radius: 16px;
             padding: 48px;
             text-align: center;
             margin-top: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .cta-banner h3 {
             color: var(--white);
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 12px;
-            position: relative;
         }
 
         .cta-banner p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
             margin-bottom: 24px;
-            position: relative;
         }
 
         /* ========== CONTACT ========== */
@@ -680,41 +677,46 @@
 
         .contact-card {
             background: var(--white);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 32px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             border: 1px solid var(--gray-200);
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
         .contact-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
-        .contact-card .icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--cyan-500), var(--blue-500));
-            border-radius: 50%;
+        .contact-card .icon-wrap {
+            width: 56px;
+            height: 56px;
+            background: var(--gray-100);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
-            font-size: 1.5rem;
+        }
+
+        .contact-card .icon-wrap svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--navy-800);
         }
 
         .contact-card h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--navy-900);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .contact-card p, .contact-card a {
             color: var(--gray-600);
             text-decoration: none;
+            font-size: 0.9rem;
         }
 
         .contact-card a:hover {
@@ -739,13 +741,16 @@
         .footer-brand p {
             margin-top: 16px;
             line-height: 1.7;
+            font-size: 0.9rem;
         }
 
         .footer h4 {
             color: var(--white);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .footer ul {
@@ -753,17 +758,18 @@
         }
 
         .footer li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .footer a {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
             transition: color 0.2s;
+            font-size: 0.9rem;
         }
 
         .footer a:hover {
-            color: var(--cyan-400);
+            color: var(--white);
         }
 
         .footer-bottom {
@@ -775,7 +781,7 @@
         }
 
         .footer-bottom p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* ========== RESPONSIVE ========== */
@@ -788,6 +794,7 @@
             .hero-card {
                 max-width: 400px;
                 margin: 0 auto;
+                text-align: left;
             }
 
             .actions {
@@ -813,7 +820,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
 
             .cards {
@@ -835,9 +842,7 @@
 
         /* ========== UTILITIES ========== */
         .text-center { text-align: center; }
-        .mb-0 { margin-bottom: 0; }
         .mt-4 { margin-top: 32px; }
-        .mt-6 { margin-top: 48px; }
 
         /* Figure styling */
         .figure {
@@ -847,8 +852,7 @@
 
         .figure img {
             max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -861,14 +865,14 @@
         <nav>
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a class="nav-link" href="#technology">Technology <span class="arrow">▼</span></a>
+                    <a class="nav-link" href="#technology">Technology <span class="arrow"></span></a>
                     <ul class="sub">
                         <li><a href="#camera-modules">Camera Modules</a></li>
                         <li><a href="#automation">Manufacturing Automation</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#products">Products <span class="arrow">▼</span></a>
+                    <a class="nav-link" href="#products">Products <span class="arrow"></span></a>
                     <ul class="sub">
                         <li><a href="#optical-products">Optical Products</a></li>
                         <li><a href="#vibration-platform">1D Vibration Platform</a></li>
@@ -891,11 +895,11 @@
 <section class="hero" id="top">
     <div class="container hero-grid">
         <div class="hero-copy">
-            <div class="hero-badge">★ Industry-Leading Optical Solutions</div>
+            <div class="hero-badge">Industry-Leading Optical Solutions</div>
             <h1>Advanced Precision Products<br><span>Optical Technology</span></h1>
             <p class="lead">Professional camera modules, precision manufacturing automation, and OIS testing solutions for smartphones, automobiles, drones, and industrial applications.</p>
             <div class="actions">
-                <a class="btn primary" href="#products">Explore Products →</a>
+                <a class="btn primary" href="#products">Explore Products</a>
                 <a class="btn secondary" href="#contact">Request Demo</a>
             </div>
                 </div>
@@ -925,10 +929,10 @@
             </div>
                 <div class="card-body">
                     <ul class="feature-list">
-                        <li><span class="icon">✓</span> <strong>Fixed-Focus:</strong> Razor-sharp images with stable optical characteristics</li>
-                        <li><span class="icon">✓</span> <strong>Auto-Focus:</strong> Advanced mechanisms for fast-moving scene capture</li>
-                        <li><span class="icon">✓</span> <strong>OIS:</strong> Compensates for camera movement, blur-free images</li>
-                        <li><span class="icon">✓</span> <strong>Liquid Lenses:</strong> Rapid adjustments, compact & durable designs</li>
+                        <li><strong>Fixed-Focus:</strong> Razor-sharp images with stable optical characteristics</li>
+                        <li><strong>Auto-Focus:</strong> Advanced mechanisms for fast-moving scene capture</li>
+                        <li><strong>OIS:</strong> Compensates for camera movement, blur-free images</li>
+                        <li><strong>Liquid Lenses:</strong> Rapid adjustments, compact & durable designs</li>
                         </ul>
                     <div class="specs-grid mt-4">
                         <div class="spec-item">
@@ -958,12 +962,12 @@
                 </div>
                 <div class="card-body">
                     <ul class="feature-list">
-                        <li><span class="icon">✓</span> <strong>Turnkey Solutions:</strong> High integration & throughput</li>
-                        <li><span class="icon">✓</span> <strong>Predictive Analytics:</strong> ML-powered maintenance</li>
-                        <li><span class="icon">✓</span> <strong>IIoT Sensors:</strong> Real-time data collection</li>
-                        <li><span class="icon">✓</span> <strong>Laser Soldering:</strong> Exceptional precision bonds</li>
-                        <li><span class="icon">✓</span> <strong>Automated Dispensing:</strong> CNC-guided accuracy</li>
-                        <li><span class="icon">✓</span> <strong>Camera Vision AOI:</strong> Advanced inspection</li>
+                        <li><strong>Turnkey Solutions:</strong> High integration & throughput</li>
+                        <li><strong>Predictive Analytics:</strong> ML-powered maintenance</li>
+                        <li><strong>IIoT Sensors:</strong> Real-time data collection</li>
+                        <li><strong>Laser Soldering:</strong> Exceptional precision bonds</li>
+                        <li><strong>Automated Dispensing:</strong> CNC-guided accuracy</li>
+                        <li><strong>Camera Vision AOI:</strong> Advanced inspection</li>
                         </ul>
                     </div>
                 </div>
@@ -976,18 +980,18 @@
     <div class="container">
         <h2>Products</h2>
 
-        <!-- Featured: Vibration Platform -->
+        <!-- Featured: 1D Vibration Platform -->
         <div class="featured-product" id="vibration-platform">
             <div class="featured-header">
-                <h3>📦 Featured: OIS Testing Equipment</h3>
-                <span class="featured-badge">Ultra-Portable</span>
+                <h3>1D Vibration Platform</h3>
+                <span class="featured-badge">OIS Testing</span>
                     </div>
             <div class="featured-content">
                 <div class="image-container">
                     <img src="images/image1.jpeg" alt="1D Vibration Platform" onerror="this.style.display='none'">
                     </div>
                 <div class="details">
-                    <h4>1D Vibration Platform</h4>
+                    <h4>Ultra-Portable Bench-Top Platform</h4>
                     <p>This ultra-portable bench-top vibration platform is ideal for demo purposes and designed to test and evaluate optical image stabilization (OIS) performance. Perfect for R&D labs, quality assurance, and on-site demonstrations.</p>
                     <div class="specs-grid">
                         <div class="spec-item">
@@ -1016,7 +1020,7 @@
                         </div>
                     </div>
                     <div class="btn-row">
-                        <a href="#contact" class="btn primary">Request Quote →</a>
+                        <a href="#contact" class="btn primary">Request Quote</a>
                         <a href="#contact" class="btn outline">Schedule Demo</a>
                     </div>
                 </div>
@@ -1024,9 +1028,9 @@
             </div>
 
         <!-- 2D Vibration Platform -->
-        <div class="featured-product" id="vibration-2d" style="border-color: var(--blue-500);">
-            <div class="featured-header" style="background: linear-gradient(135deg, var(--blue-600), var(--blue-500));">
-                <h3>📦 2D Vibration Platform</h3>
+        <div class="featured-product" id="vibration-2d">
+            <div class="featured-header">
+                <h3>2D Vibration Platform</h3>
                 <span class="featured-badge">Production Ready</span>
                     </div>
             <div class="featured-content">
@@ -1034,12 +1038,12 @@
                     <img src="images/image2.png" alt="2D Vibration Platform" onerror="this.style.display='none'">
                     </div>
                 <div class="details">
-                    <h4>2D Vibration Platform</h4>
+                    <h4>Portable Two-Axis Platform</h4>
                     <p>This portable 2-D vibration platform is designed for testing and comparing camera picture results with and without image stabilizers in operation. It offers adjustable vibration in two dimensions and is suitable for demo use or production environments.</p>
                     <ul class="feature-list" style="margin-bottom: 20px;">
-                        <li><span class="icon">✓</span> Adjustable vibration in two dimensions (manual or USB control)</li>
-                        <li><span class="icon">✓</span> Frequency and waveform adjustments</li>
-                        <li><span class="icon">✓</span> Suitable for demo and production environments</li>
+                        <li>Adjustable vibration in two dimensions (manual or USB control)</li>
+                        <li>Frequency and waveform adjustments</li>
+                        <li>Suitable for demo and production environments</li>
                         </ul>
                     <div class="specs-grid">
                         <div class="spec-item">
@@ -1076,7 +1080,7 @@
                         </div>
                     </div>
                     <div class="btn-row">
-                        <a href="#contact" class="btn primary">Request Quote →</a>
+                        <a href="#contact" class="btn primary">Request Quote</a>
                         <a href="#contact" class="btn outline">Schedule Demo</a>
                     </div>
                 </div>
@@ -1087,7 +1091,7 @@
         <div class="cards" id="optical-products">
             <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="images/image3.jpg" alt="OIS VCM Assembly Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>⚙️</div>'">
+                    <img src="images/image3.jpg" alt="OIS VCM Assembly Machine" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'></div>'">
                 </div>
                 <div class="content">
                     <h3>OIS VCM Assembly Machine</h3>
@@ -1107,7 +1111,7 @@
 
             <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="images/image4.jpeg" alt="Lens Assembly Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>🔧</div>'">
+                    <img src="images/image4.jpeg" alt="Lens Assembly Machine" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'></div>'">
                     </div>
                 <div class="content">
                     <h3>Lens Assembly Machine</h3>
@@ -1127,7 +1131,7 @@
 
                     <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="images/image5.png" alt="Lens Insertion Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>🎯</div>'">
+                    <img src="images/image5.png" alt="Lens Insertion Machine" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'></div>'">
                 </div>
                 <div class="content">
                         <h3>Lens Insertion Machine</h3>
@@ -1147,7 +1151,7 @@
 
             <div class="product-card" id="automation-equipment">
                 <div class="image-wrapper">
-                    <img src="images/image6.jpeg" alt="Lens MTF Sorting Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>📊</div>'">
+                    <img src="images/image6.jpeg" alt="Lens MTF Sorting Machine" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'></div>'">
                 </div>
                 <div class="content">
                         <h3>Lens MTF Sorting Machine</h3>
@@ -1167,7 +1171,7 @@
 
                     <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="images/image7.jpg" alt="Lens ID Sorting Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>🔍</div>'">
+                    <img src="images/image7.jpg" alt="Lens ID Sorting Machine" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'></div>'">
                 </div>
                 <div class="content">
                         <h3>Lens ID Sorting Machine</h3>
@@ -1187,7 +1191,7 @@
 
                     <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="images/image8.jpg" alt="Automated Dispensing Machine" onerror="this.parentElement.innerHTML='<div style=&quot;color:var(--gray-400);font-size:3rem;&quot;>💧</div>'">
+                    <img src="images/image8.jpg" alt="Automated Dispensing Machine" onerror="this.parentElement.innerHTML='<div class=\'image-placeholder\'></div>'">
                 </div>
                 <div class="content">
                         <h3>Automated Dispensing Machine</h3>
@@ -1240,9 +1244,9 @@
             </div>
 
         <div class="cta-banner">
-            <h3>At APP, we don't just manufacture — we engineer excellence</h3>
+            <h3>We don't just manufacture — we engineer excellence</h3>
             <p>Our guiding principles remain steadfast: customer satisfaction, precision, and reliability.</p>
-            <a href="#contact" class="btn primary">Get Started Today →</a>
+            <a href="#contact" class="btn primary">Get Started Today</a>
             </div>
     </div>
 </section>
@@ -1257,17 +1261,30 @@
 
         <div class="contact-grid">
             <div class="contact-card">
-                <div class="icon">📧</div>
+                <div class="icon-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                </div>
                 <h4>Email Us</h4>
                 <a href="mailto:sales@app-precision.com">sales@app-precision.com</a>
             </div>
             <div class="contact-card">
-                <div class="icon">📞</div>
+                <div class="icon-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                </div>
                 <h4>Call Us</h4>
                 <a href="tel:+18005550199">+1 (800) 555-0199</a>
             </div>
             <div class="contact-card">
-                <div class="icon">📍</div>
+                <div class="icon-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                </div>
                 <h4>Visit Us</h4>
                 <p>123 Innovation Drive</p>
             </div>
@@ -1317,15 +1334,15 @@
     </footer>
 
     <script>
-    // Smooth scrolling
+// Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                const offset = 80;
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
                 }
             });
         });
